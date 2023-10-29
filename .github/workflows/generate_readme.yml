@@ -35,7 +35,7 @@ jobs:
         git remote -v
         git branch -a
         git commit -m "Update README.md"
-        git push https://carlangelorepoyo:PAT_TOKEN@github.com/${{ github.repository }}.git HEAD:main
+        git push https://github.com/${{ github.repository }}.git HEAD:main
       env:
         PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
       working-directory: ${{ github.workspace }}
