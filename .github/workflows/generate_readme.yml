@@ -32,8 +32,10 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add README.md
+        git remote -v
+        git branch -a
         git commit -m "Update README.md"
-        git push https://github.com/${{ github.repository }}.git HEAD:main
+        git push https://carlangelorepoyo:PAT_TOKEN@github.com/${{ github.repository }}.git HEAD:main
       env:
         PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
       working-directory: ${{ github.workspace }}
