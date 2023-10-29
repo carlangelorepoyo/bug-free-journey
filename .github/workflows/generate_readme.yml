@@ -1,0 +1,37 @@
+name: Generate README from JSON
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-readme:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        pip install jinja2
+      working-directory: ${{ github.workspace }}
+
+    - name: Generate README
+      run: |
+        python generate_readme.py
+      working-directory: ${{ github.workspace }}
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add README.md
+        git commit -m "Update README.md"
+        git push
+      working-directory: ${{ github.workspace }}
