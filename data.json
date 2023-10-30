@@ -1,6 +1,6 @@
 {
-  "projectName": "My Awesome Project",
-  "description": "Test",
+  "projectName": "Test",
+  "description": "Test Description...",
   "author": "John Doe",
   "license": "MIT",
   "dependencies": [
